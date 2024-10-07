@@ -1,0 +1,29 @@
+<div class="stepper-container" [style.width.px]="stepperWidth()">
+  <div class="progress-line" [style.width.%]="progressPercentage()"></div>
+  @for (step of steps(); track $index) {
+  <div
+    class="step"
+    [class.active]="$index === currentStep()"
+    [class.completed]="$index < currentStep()"
+    (click)="onStepClick($index)"
+  >
+    <div class="step-icon">
+      @if (step.svgIcon) {
+      <img [src]="step.svgIcon" alt="icon" />
+      } @else { @if (step.alphabetic) {
+      <span>{{ step.alphabetic }}</span>
+      <!-- Alphabetic representation -->
+      } @else {
+      <span>{{ $index + 1 }}</span>
+      <!-- Step count -->
+      } }
+    </div>
+    <span class="step-label">{{ step.label }}</span>
+    @if (step.optional) {
+    <span class="step-optional">Optional</span>
+    }
+  </div>
+  @if ($index < steps().length - 1) {
+  <div class="line-between-steps"></div>
+  } }
+</div>

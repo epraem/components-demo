@@ -1,0 +1,67 @@
+.stepper-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.step {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.step-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.step.active .step-icon {
+  background-color: blue;
+  color: white;
+}
+
+.step.completed .step-icon {
+  background-color: green;
+  color: white;
+}
+
+.step-label {
+  margin-top: 5px;
+  text-wrap: nowrap;
+}
+
+.step-optional {
+  font-size: 12px;
+  color: gray;
+}
+
+.line-between-steps {
+  flex: 1;
+  height: 2px;
+  background-color: lightgray;
+  position: relative;
+  top: -20px;
+  z-index: 0;
+}
+
+.progress-line {
+  position: absolute;
+  height: 2px;
+  background-color: blue;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+  transition: width 0.3s ease;
+}
